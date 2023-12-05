@@ -1,4 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from urllib.parse import urlparse, parse_qs
 
 from modules.render_home import render_home
@@ -73,15 +74,20 @@ class RequestHandler(BaseHTTPRequestHandler):
     else:
       self.wfile.write(bytes(response, "utf-8", "surrogateescape"))
 
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+  """Dummy class to ensure threading/Handle requests in a separate thread."""
+  # See https://stackoverflow.com/questions/888834/daemonizing-pythons-basehttpserver
+
 def start_server():
-  """Starts the CRECxplorer and begins listening"""
-  print("Starting CRECxplorer ...")
+  """Starts the DepViz and begins listening"""
+  print("Starting DepViz ...")
   SERVER_HOST = "localhost"
   SERVER_PORT = 8080
   SERVER_PATH = f"http://{SERVER_HOST}:{SERVER_PORT}"
   os.environ['SERVER_PATH'] = SERVER_PATH
 
-  server = HTTPServer((SERVER_HOST, SERVER_PORT), RequestHandler)
+  # server = HTTPServer((SERVER_HOST, SERVER_PORT), RequestHandler)
+  server = ThreadedHTTPServer((SERVER_HOST, SERVER_PORT), RequestHandler)
   print(f"Server started at {SERVER_PATH} -- press Ctrl+C to stop")
   try:
     server.serve_forever()
