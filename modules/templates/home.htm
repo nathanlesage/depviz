@@ -1,0 +1,26 @@
+<h1>DepViz</h1>
+<p>
+  DepViz is a visualization tool that can quickly and easily visualize the
+  dependency trees of a sentence. Simply enter it into the box below and press
+  "Visualize". This visualizer uses Universal Dependencies conventions.
+</p>
+
+<p>
+  <a href="$URL$/?sentence=This+is+a+sentence+which%2C+while+being+comparably+long+and+complex%2C+aims+to+demonstrate+the+flexibility%2C+speed%2C+and+visual+compellingness+of+DepViz.">
+    Click here for a demo-sentence
+  </a>
+</p>
+
+<p>Hover over a token to see additional information about it, and click to see the corresponding subtree.</p>
+
+<form method="GET" id="sentence-form" action="">
+  <textarea id="sentence-input" name="sentence" placeholder="Enter a sentence ...">$sentence$</textarea>
+  <button id="viz-button" type="submit">Visualize</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+const doc = JSON.parse("$doc$".replace(/'/g, '"')) // '' -> ""
+console.log(doc)
+</script>
