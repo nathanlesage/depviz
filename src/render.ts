@@ -80,7 +80,7 @@ function renderDetails (state: AppState) {
 
   const resultsTable = document.createElement('table')
   const header = document.createElement('tr')
-  for (const th of [ '#', 'Token', 'Head', 'POS', 'DepRel', 'NER' ]) {
+  for (const th of [ '#', 'Token', 'Head', 'POS', 'Tag', 'Dependency relation', 'NER' ]) {
     const cell = document.createElement('th')
     cell.textContent = th
     header.appendChild(cell)
@@ -101,6 +101,8 @@ function renderDetails (state: AppState) {
     head.classList.add('number')
     const pos = document.createElement('td')
     pos.textContent = descriptive ? POSmap[token.pos] : token.pos
+    const tag = document.createElement('td')
+    tag.textContent = descriptive ? tagMap[token.tag] : token.tag
     const dep = document.createElement('td')
     dep.textContent = descriptive ? depMap[token.dep] : token.dep
     const ner = document.createElement('td')
@@ -112,6 +114,7 @@ function renderDetails (state: AppState) {
     row.appendChild(text)
     row.appendChild(head)
     row.appendChild(pos)
+    row.appendChild(tag)
     row.appendChild(dep)
     row.appendChild(ner)
     body.appendChild(row)
