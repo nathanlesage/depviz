@@ -26,7 +26,7 @@ function highlightSubtree (token: Token): void {
 }
 
 async function fetchDoc (sentence: string): Promise<Doc> {
-  const response = await fetch(`http://localhost:8080/fetch.php?sentence=${encodeURIComponent(sentence)}`)
+  const response = await fetch(`fetch.php?sentence=${encodeURIComponent(sentence)}`)
   if (response.ok) {
     return await response.json()
   }
