@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "serve": "php -S localhost:8080 -t ./dist"
   },
   "dependencies": {
     "leader-line": "^1.0.7",

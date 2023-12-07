@@ -58,4 +58,5 @@ document.addEventListener('DOMContentLoaded', function (event) {
       })
       .catch(err => console.error(err))
   })
+  console.log('DepViz is ready.')
 })
