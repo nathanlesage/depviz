@@ -5,6 +5,8 @@
 DepViz is a tiny visualization server that is built on top of Spacy to quickly
 visualize a sentence's dependency tree for educational purposes.
 
+![A screenshot of the interface with the demo sentence visualized.](screenshot.png)
+
 ## Table of Contents
 
 - [DepViz](#depviz)
