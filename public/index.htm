@@ -29,20 +29,29 @@
 
       <p>
         <a id="demo-sentence" href="#">
-          Click here for a demo-sentence
+          Click here to visualize a demo-sentence.
         </a>
       </p>
 
-      <p>Hover over a token to see additional information about it, and click to see the corresponding subtree.</p>
+      <p>
+        Hover over a token to see additional information about it, and click to see the corresponding subtree.
+      </p>
 
       <textarea id="sentence-input" name="sentence" placeholder="Enter a sentence ..."></textarea>
       <button id="viz-button" type="submit">Visualize</button>
+
+      <h3>Toolbar</h3>
+      <div id="toolbar">
+        <button id="toggle-word-wrap" onclick="document.getElementById('output').classList.toggle('no-wrap')">Toggle Word Wrap</button>
+      </div>
+
+      <h3>Output</h3>
 
       <div id="output"></div>
   </div>
 
   <footer>
-    DepViz
+    DepViz &copy; 2023 Hendrik Erz | <a href="https://github.com/nathanlesage/depviz" target="_blank">View GitHub Repository</a>
   </footer>
 </body>
 </html>

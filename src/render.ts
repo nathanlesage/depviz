@@ -61,8 +61,8 @@ export function render (state: AppState, tokenClickCallback: (token: Token) => v
     const to = document.getElementById(`token-${token.head}`)
     // https://anseki.github.io/leader-line/
     const line = new LeaderLine(from, to, {
-      startSocket: 'top',
-      endSocket: 'top',
+      // startSocket: 'top',
+      // endSocket: 'top',
       middleLabel: LeaderLine.pathLabel({ text: token.dep, outlineColor: 'none' }),
       // color: 'rgba(30, 130, 250, 0.5)',
       // size: 2,

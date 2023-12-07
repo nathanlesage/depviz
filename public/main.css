@@ -22,13 +22,6 @@ body {
   color: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: rgb(101, 101, 101);
-    color: white;
-  }
-}
-
 img {
   max-width: 100%;
 }
@@ -49,6 +42,8 @@ footer {
   text-align: center;
   color: white;
 }
+
+footer a { color: inherit; }
 
 div#app {
   max-width: 800px;
@@ -136,9 +131,7 @@ textarea#sentence-input {
   border-radius: 8px;
 }
 
-button#viz-button {
-  width: 100%;
-  font-size: 130%;
+button {
   padding: 6px 12px;
   margin: 10px 0px;
   background-color: var(--accent-2);
@@ -147,8 +140,13 @@ button#viz-button {
   border-radius: 8px;
 }
 
-button#viz-button:disabled {
+button:disabled {
   background-color: rgb(128, 128, 128);
+}
+
+button#viz-button {
+  width: 100%;
+  font-size: 130%;
 }
 
 /* TOKENS AND VISUALIZATION */
@@ -156,6 +154,12 @@ button#viz-button:disabled {
 div#output {
   cursor: default;
   margin-top: 40px;
+}
+
+div#output.no-wrap {
+  white-space: nowrap;
+  overflow-x: scroll;
+  padding: 40px 0;
 }
 
 .token {
@@ -206,3 +210,19 @@ div#output {
 .token.pos-NUM   { background-color: rgb(190, 190, 190); }
 .token.pos-SYM   { background-color: rgb(180, 180, 180); }
 .token.pos-X     { background-color: black; color: white; }
+
+/* DARK THEMING */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(101, 101, 101);
+    color: white;
+  }
+
+  textarea#sentence-input {
+    background-color: rgb(80, 80, 80);
+    color: white;
+  }
+
+  a { color: rgb(255, 0, 255); }
+}
