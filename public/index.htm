@@ -42,7 +42,8 @@
 
       <h3>Toolbar</h3>
       <div id="toolbar">
-        <button id="toggle-word-wrap" onclick="document.getElementById('output').classList.toggle('no-wrap')">Toggle Word Wrap</button>
+        <button id="toggle-word-wrap" onclick="document.getElementById('output').classList.toggle('no-wrap')" title="Use this to make the rendered sentence either wrap or not">Toggle Word Wrap</button>
+        <button id="toggle-descriptive" title="Shows descriptions of various tags instead of the tags in various places (adverb instead of ADV)">Toggle descriptives</button>
       </div>
 
       <h3>Output</h3>
@@ -50,7 +51,7 @@
       <div id="output"></div>
 
       <details>
-        <summary>All info</summary>
+        <summary>Detailed token info</summary>
 
         <div id="debug-info"></div>
       </details>

@@ -2,6 +2,7 @@ import { AppState } from './main'
 import { collectSubtree, getTokenText } from './util'
 import tippy from 'tippy.js'
 import { Token } from './spacy-doc'
+import { depMap, POSmap, tagMap } from './data-maps'
 declare var LeaderLine: any
 
 export function render (state: AppState, tokenClickCallback: (token: Token) => void) {
@@ -30,11 +31,11 @@ export function render (state: AppState, tokenClickCallback: (token: Token) => v
       <strong>${getTokenText(state.document, token)}</strong><br>
       (${chain})
       <hr>
-      Dep: ${token.dep}<br>
+      Dep: ${token.dep} [${depMap[token.dep]}]<br>
       Lemma: ${token.lemma}<br>
       Morph: ${token.morph}<br>
-      pos: ${token.pos}<br>
-      tag: ${token.tag}
+      pos: ${token.pos} [${POSmap[token.pos]}]<br>
+      tag: ${token.tag} [${tagMap[token.tag]}]
     `)
     
     tok.addEventListener('click', () => { tokenClickCallback(token) })
@@ -74,6 +75,7 @@ export function render (state: AppState, tokenClickCallback: (token: Token) => v
 }
 
 function renderDetails (state: AppState) {
+  const descriptive = state.details.descriptiveTags
   const wrapper = document.getElementById('debug-info')
 
   const resultsTable = document.createElement('table')
@@ -98,9 +100,9 @@ function renderDetails (state: AppState) {
     head.textContent = String(token.head)
     head.classList.add('number')
     const pos = document.createElement('td')
-    pos.textContent = token.pos
+    pos.textContent = descriptive ? POSmap[token.pos] : token.pos
     const dep = document.createElement('td')
-    dep.textContent = token.dep
+    dep.textContent = descriptive ? depMap[token.dep] : token.dep
     const ner = document.createElement('td')
     const entity = state.document.ents.find(e => e.start <= token.start && e.end >= token.end)
     if (entity !== undefined) {

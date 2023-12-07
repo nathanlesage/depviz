@@ -15,6 +15,11 @@ type DepRel = 'ROOT'|'acl'|'acomp'|'advcl'|'advmod'|'agent'|'amod'|'appos'|'attr
 type NERCategory = 'CARDINAL'|'DATE'|'EVENT'|'FAC'|'GPE'|'LANGUAGE'|'LAW'|'LOC'|
   'MONEY'|'NORP'|'ORDINAL'|'ORG'|'PERCENT'|'PERSON'|'PRODUCT'|'QUANTITY'|'TIME'|'WORK_OF_ART'
 
+type POStag = '$'|"''"|','|'-LRB-'|'-RRB-'|'.'|':'|'ADD'|'AFX'|'CC'|'CD'|'DT'|
+  'EX'|'FW'|'HYPH'|'IN'|'JJ'|'JJR'|'JJS'|'LS'|'MD'|'NFP'|'NN'|'NNP'|'NNPS'|'NNS'|
+  'PDT'|'POS'|'PRP'|'PRP$'|'RB'|'RBR'|'RBS'|'RP'|'SYM'|'TO'|'UH'|'VB'|'VBD'|'VBG'|
+  'VBN'|'VBP'|'VBZ'|'WDT'|'WP'|'WP$'|'WRB'|'XX'|'_SP'|'``'
+
 export interface NamedEntity {
   start: number
   end: number
@@ -25,7 +30,7 @@ export interface Token {
   id: number
   start: number
   end: number
-  tag: string
+  tag: POStag
   pos: POSOpenClass|POSClosedClass|POSOther
   morph: string
   lemma: string

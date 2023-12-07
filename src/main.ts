@@ -6,12 +6,18 @@ export interface AppState {
   document: Doc|undefined
   focusToken: number
   lines: any[]
+  details: {
+    descriptiveTags: boolean // Whether to show "clausal complement" instead of "ccomp"
+  }
 }
 
 const state: AppState = {
   document: undefined,
   focusToken: -1,
-  lines: []
+  lines: [],
+  details: {
+    descriptiveTags: false
+  }
 }
 
 
@@ -22,6 +28,11 @@ function highlightSubtree (token: Token): void {
   } else {
     state.focusToken = token.id
   }
+  render(state, highlightSubtree)
+}
+
+function toggleDescriptiveTags (): void {
+  state.details.descriptiveTags = !state.details.descriptiveTags
   render(state, highlightSubtree)
 }
 
@@ -58,5 +69,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       })
       .catch(err => console.error(err))
   })
+
+  document.getElementById('toggle-descriptive').addEventListener('click', toggleDescriptiveTags)
   console.log('DepViz is ready.')
 })

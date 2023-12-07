@@ -72,6 +72,14 @@ div#app {
   padding: 10px;
 }
 
+div#debug-info {
+  padding: 20px 0px;
+}
+
+div#output {
+  margin-bottom: 20px;
+}
+
 nav#main-nav {
   position: fixed;
   top: 0;
