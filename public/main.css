@@ -147,6 +147,10 @@ button#viz-button {
   border-radius: 8px;
 }
 
+button#viz-button:disabled {
+  background-color: rgb(128, 128, 128);
+}
+
 /* TOKENS AND VISUALIZATION */
 
 div#output {

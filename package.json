@@ -1,0 +1,25 @@
+{
+  "name": "depviz",
+  "version": "0.1.0",
+  "description": "Visualize dependency trees in your browser",
+  "main": "main.js",
+  "repository": "https://github.com/nathanlesage/depviz.git",
+  "author": "Hendrik Erz <hendrik@zettlr.com>",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "dependencies": {
+    "leader-line": "^1.0.7",
+    "tippy.js": "^6.3.7",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

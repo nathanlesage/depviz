@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [ "DOM", "ES2022" ],
+    "module": "es6",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "outDir": "public"
+  },
+  "baseUrl": ".",
+  "include": [ "src/main.ts" ]
+}

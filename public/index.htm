@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DepViz</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="tippy.css">
+  <script src="main.js"></script>
+  <script src="leader-line.min.js"></script>
+</head>
+<body>
+  <nav id="main-nav">
+    <ul class="nav-left">
+      <li><a href="/">DepViz</a></li>
+    </ul>
+    <ul class="nav-right">
+    </ul>
+  </nav>
+  <div id="app">
+    <h1>DepViz</h1>
+      <p>
+        DepViz is a visualization tool that can quickly and easily visualize the
+        dependency trees of a sentence. Simply enter it into the box below and press
+        "Visualize". This visualizer uses Universal Dependencies conventions.
+      </p>
+
+      <p>
+        <a id="demo-sentence" href="#">
+          Click here for a demo-sentence
+        </a>
+      </p>
+
+      <p>Hover over a token to see additional information about it, and click to see the corresponding subtree.</p>
+
+      <textarea id="sentence-input" name="sentence" placeholder="Enter a sentence ..."></textarea>
+      <button id="viz-button" type="submit">Visualize</button>
+
+      <div id="output"></div>
+  </div>
+
+  <footer>
+    DepViz
+  </footer>
+</body>
+</html>

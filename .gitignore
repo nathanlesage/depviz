@@ -1,1 +1,6 @@
 __pycache__
+node_modules
+convert_cache/*
+!convert_cache/.gitkeep
+dist
+public/.env
