@@ -70,4 +70,51 @@ export function render (state: AppState, tokenClickCallback: (token: Token) => v
     line.path = 'arc'
     state.lines.push(line)
   }
+  renderDetails(state)
+}
+
+function renderDetails (state: AppState) {
+  const wrapper = document.getElementById('debug-info')
+
+  const resultsTable = document.createElement('table')
+  const header = document.createElement('tr')
+  for (const th of [ '#', 'Token', 'Head', 'POS', 'DepRel', 'NER' ]) {
+    const cell = document.createElement('th')
+    cell.textContent = th
+    header.appendChild(cell)
+  }
+  resultsTable.appendChild(header)
+
+  const body = document.createElement('tbody')
+  resultsTable.appendChild(body)
+  for (const token of state.document.tokens) {
+    const row = document.createElement('tr')
+    const id = document.createElement('td')
+    id.textContent = String(token.id)
+    id.classList.add('number')
+    const text = document.createElement('td')
+    text.textContent = getTokenText(state.document, token)
+    const head = document.createElement('td')
+    head.textContent = String(token.head)
+    head.classList.add('number')
+    const pos = document.createElement('td')
+    pos.textContent = token.pos
+    const dep = document.createElement('td')
+    dep.textContent = token.dep
+    const ner = document.createElement('td')
+    const entity = state.document.ents.find(e => e.start <= token.start && e.end >= token.end)
+    if (entity !== undefined) {
+      ner.textContent = entity.label
+    }
+    row.appendChild(id)
+    row.appendChild(text)
+    row.appendChild(head)
+    row.appendChild(pos)
+    row.appendChild(dep)
+    row.appendChild(ner)
+    body.appendChild(row)
+  }
+
+  wrapper.innerHTML = ''
+  wrapper.appendChild(resultsTable)
 }

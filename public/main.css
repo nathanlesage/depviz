@@ -43,7 +43,28 @@ footer {
   color: white;
 }
 
+summary {
+  cursor: default;
+}
+
 footer a { color: inherit; }
+
+table {
+  border-collapse: collapse;
+}
+
+table td, table th {
+  border: 1px solid rgb(200, 200, 200);
+  padding: 4px 8px;
+}
+
+table tr:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+table td.number {
+  text-align: right;
+}
 
 div#app {
   max-width: 800px;
@@ -225,4 +246,8 @@ div#output.no-wrap {
   }
 
   a { color: rgb(255, 0, 255); }
+
+  table tr:hover {
+    background-color: rgb(120, 120, 120);
+  }
 }
